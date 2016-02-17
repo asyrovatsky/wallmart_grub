@@ -16,8 +16,8 @@ class SearchesController < ApplicationController
     key_words = search_params[:text].split(' ')
     doc = open(url) { |f| Hpricot(f) }
     
-
-    page_count = doc.search(".paginator-list .js-pagination.link").last.inner_html.to_i
+    last_page_node = doc.search(".paginator-list .js-pagination.link").last
+    page_count = last_page_node ? last_page_node.inner_html.to_i : 1
 
     counter = 0
 
