@@ -36,7 +36,7 @@ class SearchesController < ApplicationController
 
          match = true
          key_words.each do |word|
-           if !text.inner_html.match(/\b(#{word})\b/i)
+           if !text.match(/\b(#{word})\b/i)
               match = false
               break
            end
