@@ -3,6 +3,28 @@
 
 <p id="notice"><%= notice %></p>
 
-
+<% if @found_reviews %>
+  <table>
+   <tr>
+   <th>Nick</th><th>Date</th><th>Title</th><th>Text</th>
+   </tr>
+  <% @found_reviews.each do |review| %>
+      <tr>
+      <td>
+        <%= review.nick.html_safe %>
+      </td>
+      <td>
+        <%= review.date.html_safe %>
+      </td>
+      <td>
+        <%= review.title.html_safe %>
+      </td>
+      <td>
+        <%= review.text.html_safe %>
+      </td>
+      </tr>
+  <% end %>
+  </table>
+<% end %>
 
 <%= link_to 'New Search', new_search_path %>
